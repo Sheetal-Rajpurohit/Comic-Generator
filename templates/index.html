@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Comic Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="app">
+        <header>
+            <h1>AI Comic Generator</h1>
+        </header>
+        <main>
+            <div class="input-section">
+                <input type="text" id="prompt" placeholder="Enter your story prompt...">
+                <button @click="generateComic()">Generate Comic</button>
+            </div>
+            
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Generating your comic... This may take 1-2 minutes.</p>
+            </div>
+            
+            <div id="comic" class="hidden">
+                <div class="comic-grid">
+                    <div class="panel" v-for="(panel, index) in panels">
+                        <img :src="panel.image" alt="Comic panel">
+                        <p class="caption">[[ panel.caption ]]</p>
+                    </div>
+                </div>
+                <!-- <div class="audio-player">
+                    <audio id="musicPlayer" controls>
+                        <source :src="musicSource" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div> -->
+            </div>
+        </main>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+<<<<<<< HEAD
+=======
+
+>>>>>>> ada56b89d9cf12ca881cea67a366ada2f1bb1e96
